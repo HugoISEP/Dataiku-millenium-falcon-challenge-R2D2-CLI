@@ -30,7 +30,8 @@ To launch the command, you will need two json file locating in the root of the p
 To generate the executable run the commands below
 ```shell
 mvn clean # clean the target directory
-mvn -Pnative package # generate the native executable with GraalVM
+mvn test # Ensure all is working
+mvn -Pnative -DskipTests package # generate the native executable with GraalVM
 ```
 It can take some times to generate the binary file.  
 You will then get the executable file [/target/give-me-the-odds](./target/give-me-the-odds)
@@ -46,5 +47,4 @@ You can then use the command `give-me-the-odds`
 ```shell
 ~/Desktop/demo: give-me-the-odds millennium-falcon.json empire.json 
 100.0
-
 ```

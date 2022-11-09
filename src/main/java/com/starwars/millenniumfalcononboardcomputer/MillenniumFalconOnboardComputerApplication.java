@@ -5,13 +5,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.ExitCodeGenerator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.nativex.hint.AotProxyHint;
-import org.springframework.nativex.hint.ResourceHint;
 import org.springframework.nativex.hint.TypeHint;
 import picocli.CommandLine;
 
-@ResourceHint(patterns = {"millennium-falcon.json", "universe.db.mv.db", "universe.db.trace.db"})
-@AotProxyHint(targetClassName = "org.mockito.plugins.PluginSwitch")
 @TypeHint(types = {CommandLine.Mixin.class})
 @SpringBootApplication
 public class MillenniumFalconOnboardComputerApplication implements CommandLineRunner, ExitCodeGenerator {
