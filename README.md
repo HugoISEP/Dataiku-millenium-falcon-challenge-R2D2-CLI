@@ -48,3 +48,6 @@ You can then use the command `give-me-the-odds`
 ~/Desktop/demo: give-me-the-odds millennium-falcon.json empire.json 
 100.0
 ```
+
+## Demonstration
+For demonstration purpose, you will find the binary for MACOSX [give-me-the-odds](give-me-the-odds)
