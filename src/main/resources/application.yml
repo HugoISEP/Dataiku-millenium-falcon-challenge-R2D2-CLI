@@ -2,38 +2,14 @@ spring:
   main:
     banner-mode: off
   datasource:
-    username: sa
-    password: password
-    url: jdbc:h2:mem:test
-    driverClassName: org.h2.Driver
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite::resource:universe.db
   jpa:
+    database-platform: com.starwars.millenniumfalcononboardcomputer.configuration.SQLiteDialect
     hibernate.ddl-auto: update
-    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
   cors:
     allowed-origins: "*"
 
 logging:
   level:
     root: OFF
-
----
-spring:
-  config:
-    activate:
-      on-profile: prod
-  cors:
-    allowed-origins: https://millennium-falcon.raspberry78.me
-
----
-spring:
-  config:
-    activate:
-      on-profile: native
-  datasource:
-    username: sa
-    password: password
-    url: jdbc:h2:mem:test
-    driverClassName: org.h2.Driver
-  jpa:
-    hibernate.ddl-auto: update
-    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect

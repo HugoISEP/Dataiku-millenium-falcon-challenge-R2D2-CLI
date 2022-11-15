@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.starwars.millenniumfalcononboardcomputer.model.dto.EmpireInformationDto;
 import com.starwars.millenniumfalcononboardcomputer.model.pojo.MillenniumFalcon;
 import com.starwars.millenniumfalcononboardcomputer.service.MillenniumFalconService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import picocli.CommandLine;
 
@@ -12,13 +12,13 @@ import java.io.File;
 import java.util.concurrent.Callable;
 
 @Component
+@RequiredArgsConstructor
 @CommandLine.Command(name = "give-me-the-odds", mixinStandardHelpOptions = true,
         version = "give-me-the-odds 1.0",
         description = "Prints the odds of the millennium falcon")
 public class GiveMeTheOddsCommand implements Callable<Float> {
 
-    @Autowired
-    private MillenniumFalconService millenniumFalconService;
+    private final MillenniumFalconService millenniumFalconService;
 
     @CommandLine.Parameters(index = "0", arity = "1",
             description = "Configuration file containing the properties of the spaceship")

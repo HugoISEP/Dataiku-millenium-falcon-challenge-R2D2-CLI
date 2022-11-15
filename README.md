@@ -16,10 +16,9 @@ You have now all the necessary tools !
 
 ## Configuration
 
-The project is for now only working with an H2 database (there's full intrinsic support for it in the Spring Boot ecosystem).  
-You will find two files in the resources folder:
-1. [schema.sql](src/main/resources/schema.sql) for the schema of the database
-2. [data.sql](src/main/resources/data.sql) for the dataset
+The project is working with a sqlite database
+You will find the configuration file in the resources folder:
+- [universe.db](src/main/resources/universe.db) for the schema and default dataset. Unfortunately, this file cannot be change dynamically (as the instructions asked) due to Spring boot limitations.
 
 To launch the command, you will need two json file locating in the root of the project:
 1. [millennium-falcon.json file](./millennium-falcon.json) containing all the configuration about the Millennium Falcon.

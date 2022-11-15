@@ -1,6 +1,7 @@
 package com.starwars.millenniumfalcononboardcomputer;
 
 import com.starwars.millenniumfalcononboardcomputer.command.GiveMeTheOddsCommand;
+import com.starwars.millenniumfalcononboardcomputer.configuration.SQLiteDialect;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.ExitCodeGenerator;
 import org.springframework.boot.SpringApplication;
@@ -8,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.nativex.hint.TypeHint;
 import picocli.CommandLine;
 
-@TypeHint(types = {CommandLine.Mixin.class})
+@TypeHint(types = {CommandLine.Mixin.class, SQLiteDialect.class})
 @SpringBootApplication
 public class MillenniumFalconOnboardComputerApplication implements CommandLineRunner, ExitCodeGenerator {
     private final CommandLine.IFactory factory;
