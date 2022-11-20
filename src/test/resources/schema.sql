@@ -1,8 +1,0 @@
-DROP TABLE IF EXISTS ROUTES;
-CREATE TABLE ROUTES (
-                        ORIGIN VARCHAR(50) NOT NULL,
-                        DESTINATION VARCHAR(50) NOT NULL,
-                        TRAVEL_TIME INT NOT NULL
-);
-
-

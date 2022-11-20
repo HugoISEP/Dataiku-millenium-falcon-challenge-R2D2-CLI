@@ -1,16 +1,18 @@
 package com.starwars.millenniumfalcononboardcomputer;
 
 import com.starwars.millenniumfalcononboardcomputer.command.GiveMeTheOddsCommand;
+import lombok.val;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import picocli.CommandLine;
 
+import static com.github.stefanbirkner.systemlambda.SystemLambda.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @SpringBootTest
-class MillenniumFalconOnboardComputerApplicationTests {
+class CommandLineTest {
 
     @Autowired
     CommandLine.IFactory factory;
@@ -19,10 +21,23 @@ class MillenniumFalconOnboardComputerApplicationTests {
     GiveMeTheOddsCommand giveMeTheOddsCommand;
 
     @Test
-    void testParsingCommandLineArgs() {
-        CommandLine.ParseResult parseResult = new CommandLine(giveMeTheOddsCommand, factory)
-                .parseArgs("millennium-falcon.json",  "empire.json");
-        System.out.println(parseResult.matchedArgs().get(0));
+    void commandLineExecutionSuccessTest() throws Exception {
+        val millenniumFalconFilePath = "src/test/resources/millennium-falcon.json";
+        val empireFilePath = "src/test/resources/empire.json";
+        int exitCode = catchSystemExit(() -> {
+            MillenniumFalconOnboardComputerApplication.main(new String[]{millenniumFalconFilePath, empireFilePath});
+        });
+        assertEquals(0, exitCode);
+    }
+
+    @Test
+    void commandLineExecutionFailureTest() throws Exception {
+        val millenniumFalconFilePath = "src/test/resources/millennium-falcon.json";
+        val empireFilePath = "BadFilePath";
+        int exitCode = catchSystemExit(() -> {
+            MillenniumFalconOnboardComputerApplication.main(new String[]{millenniumFalconFilePath, empireFilePath});
+        });
+        assertEquals(1, exitCode);
     }
 
     @Test
