@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @SpringBootTest
-class MillenniumFalconOnboardComputerApplicationTests {
+class CommandLineTest {
 
     @Autowired
     CommandLine.IFactory factory;
@@ -21,7 +21,7 @@ class MillenniumFalconOnboardComputerApplicationTests {
     GiveMeTheOddsCommand giveMeTheOddsCommand;
 
     @Test
-    void globalCommandLineExecutionTest() throws Exception {
+    void commandLineExecutionSuccessTest() throws Exception {
         val millenniumFalconFilePath = "src/test/resources/millennium-falcon.json";
         val empireFilePath = "src/test/resources/empire.json";
         int exitCode = catchSystemExit(() -> {
@@ -31,21 +31,13 @@ class MillenniumFalconOnboardComputerApplicationTests {
     }
 
     @Test
-    void fileNotFoundTest() throws Exception {
+    void commandLineExecutionFailureTest() throws Exception {
         val millenniumFalconFilePath = "src/test/resources/millennium-falcon.json";
         val empireFilePath = "BadFilePath";
         int exitCode = catchSystemExit(() -> {
             MillenniumFalconOnboardComputerApplication.main(new String[]{millenniumFalconFilePath, empireFilePath});
         });
         assertEquals(1, exitCode);
-    }
-
-    @Test
-    void globalCommandLineExecutionErrorTest() throws Exception {
-        float exitCode = catchSystemExit(() -> {
-            MillenniumFalconOnboardComputerApplication.main(new String[]{"src/test/resources/millennium-falcon.json", "src/test/resources/empire.json"});
-        });
-        assertEquals(0, exitCode);
     }
 
     @Test

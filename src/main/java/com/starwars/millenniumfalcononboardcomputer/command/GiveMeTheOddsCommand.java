@@ -68,7 +68,7 @@ public class GiveMeTheOddsCommand implements Callable<Integer> {
         } else if (new File(millenniumFilePath + routeDbPath).exists()) {
             dataSource.setUrl(String.format("%s%s/%s", jdbcUrlPrefix, millenniumFilePath, routeDbPath));
         } else {
-            throw new FileNotFoundException("db file not found");
+            throw new FileNotFoundException("Database file not found: " + millenniumFalconInformation.getRoutesDb());
         }
     }
 }

@@ -16,13 +16,13 @@ You have now all the necessary tools !
 
 ## Configuration
 
-The project is working with a sqlite database
-You will find the configuration file in the resources folder:
-- [universe.db](src/main/resources/universe.db) for the schema and default dataset. Unfortunately, this file cannot be change dynamically (as the instructions asked) due to Spring boot limitations.
-
 To launch the command, you will need two json file locating in the root of the project:
 1. [millennium-falcon.json file](./millennium-falcon.json) containing all the configuration about the Millennium Falcon.
 2. [empire.json](./empire.json) containing all the information about the Empire.
+
+The project is working with a sqlite database, the configuration file in the root of the project:
+- [universe.db](universe.db) for the schema and default dataset. It is set from the [millennium-falcon.json](./millennium-falcon.json) but can be change dynamically.
+
 
 ## Generate the executable file
 
