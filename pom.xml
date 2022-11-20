@@ -18,6 +18,8 @@
 		<repackage.classifier/>
 		<spring-native.version>0.12.1</spring-native.version>
 		<sqlite.version>3.39.3.0</sqlite.version>
+		<picocli.version>4.7.0</picocli.version>
+		<system-lambda.version>1.2.1</system-lambda.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -26,14 +28,20 @@
 			<version>${sqlite.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>com.github.stefanbirkner</groupId>
+			<artifactId>system-lambda</artifactId>
+			<version>${system-lambda.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>info.picocli</groupId>
 			<artifactId>picocli-spring-boot-starter</artifactId>
-			<version>4.7.0</version>
+			<version>${picocli.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>info.picocli</groupId>
 			<artifactId>picocli-codegen</artifactId>
-			<version>4.7.0</version>
+			<version>${picocli.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

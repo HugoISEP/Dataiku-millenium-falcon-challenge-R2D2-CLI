@@ -1,15 +1,13 @@
 spring:
   main:
     banner-mode: off
+    web-application-type: none
   datasource:
     driver-class-name: org.sqlite.JDBC
-    url: jdbc:sqlite::resource:universe.db
+    url: "jdbc:sqlite::memory:"
   jpa:
     database-platform: com.starwars.millenniumfalcononboardcomputer.configuration.SQLiteDialect
     hibernate.ddl-auto: update
-  cors:
-    allowed-origins: "*"
-
 logging:
   level:
     root: OFF
