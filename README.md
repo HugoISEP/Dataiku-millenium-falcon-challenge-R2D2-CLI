@@ -20,7 +20,7 @@ To launch the command, you will need two json file locating in the root of the p
 1. [millennium-falcon.json file](./millennium-falcon.json) containing all the configuration about the Millennium Falcon.
 2. [empire.json](./empire.json) containing all the information about the Empire.
 
-The project is working with a sqlite database, the configuration file in the root of the project:
+The project is working with a sqlite database, the configuration file is in the root of the project:
 - [universe.db](universe.db) for the schema and default dataset. It is set from the [millennium-falcon.json](./millennium-falcon.json) but can be change dynamically.
 
 
@@ -36,7 +36,7 @@ It can take some times to generate the binary file.
 You will then get the executable file [/target/give-me-the-odds](./target/give-me-the-odds)
 
 ## The CLI
-To use the CLI, add the executable's directory to your PATH variable. (Use your config file .zshrc, .bashrc)  
+To use the CLI, add the executable's directory to your PATH variable. (Use your config file .zshrc, .bashrc, etc.)  
 For a quick test you can add it to your current session with the following commands:
 ```shell
 export PATH="YOUR/PATH/TO/THE_PROJECT/target:$PATH"
